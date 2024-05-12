@@ -1,0 +1,33 @@
+@charset "utf-8";
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+canvas {
+    width: 100vw;
+    height: 95vh;
+}
+
+nav {
+    height: 5vh;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav > * {
+    margin-left: 2rem;
+}
+
+nav > *:link, nav > *:visited {
+    text-decoration: none;
+    color: lime;
+}
+
+nav > *:hover, nav > *:focus {
+    text-decoration: underline;
+}
