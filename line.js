@@ -15,7 +15,7 @@ if (WebGL.isWebGLAvailable()) {
 
     const scene = new THREE.Scene();
 
-    const material = new THREE.LineBasicMaterial( { color: 0x0000ff, linewidth: 1, linecap: 'round', linecap: 'round'} );
+    const material = new THREE.LineBasicMaterial( { color: 0x0000ff, linewidth: 5 } );
 
     const points = [];
     points.push( new THREE.Vector3( - 10, 0, 0 ) );
