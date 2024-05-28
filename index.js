@@ -29,3 +29,43 @@ const auth = getAuth();
 //collection Ref
 const colRef = collection(db, 'books');
 
+//get collection data
+
+getDoc(colRef).then(snapshot=>{
+    console.log(snapshot.data);
+    console.log(snapshot.docs);
+    let books = [];
+    snapshot.docs.forEach(doc => {
+        books.push({...doc.data(), id: doc.id})
+    });
+    console.log(books);
+}).catch(err=>{
+    console.log(err.message);
+});
+
+//addding docs
+const addBookForm = document.querySelector('.add')
+addBookForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  addDoc(colRef, {
+    title: addBookForm.title.value,
+    author: addBookForm.author.value,
+  })
+  .then(() => {
+    addBookForm.reset()
+  })
+})
+
+//deleting docs
+const deleteBookForm = document.querySelector('.delete')
+deleteBookForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const docRef = doc(db, 'books', deleteBookForm.id.value)
+
+  deleteDoc(docRef)
+    .then(() => {
+      deleteBookForm.reset()
+    })
+})
