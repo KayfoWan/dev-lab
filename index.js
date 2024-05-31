@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, onSnapshot,
+import { getFirestore, collection, getDoc, getDocs, onSnapshot,
     addDoc, deleteDoc, doc,
     query, where,
     orderBy, serverTimestamp,
@@ -46,6 +46,8 @@ getDocs(colRef).then(snapshot=>{
 
 */
 
+/* REAL TIME COLLECTION DATA
+
 //real time collection data
 onSnapshot(colRef, (snapshot) => {
   let books = []
@@ -55,6 +57,27 @@ onSnapshot(colRef, (snapshot) => {
   console.log(books)
 });
 
+*/
+
+// query
+//const q = query(colRef, where("Author", '==', "Kai Worley"));
+const q2 = query(colRef, where("author", '==', "Kai Worley"), orderBy('createdAt'));
+//real time collection data using a query
+let books = [];
+/*
+onSnapshot(q, (snapshot) => {
+  snapshot.docs.forEach(doc => {
+    books.push({...doc.data(), id: doc.id});
+  });
+});
+*/
+onSnapshot(q2, (snapshot) => {
+  snapshot.docs.forEach(doc => {
+    books.push({...doc.data(), id: doc.id});
+  });
+  console.log(books);
+});
+//console.log(books);
 
 //addding docs
 const addBookForm = document.querySelector('.add')
@@ -64,6 +87,7 @@ addBookForm.addEventListener('submit', (e) => {
   addDoc(colRef, {
     title: addBookForm.title.value,
     author: addBookForm.author.value,
+    createdAt: serverTimestamp()
   })
   .then(() => {
     addBookForm.reset()
@@ -82,3 +106,17 @@ deleteBookForm.addEventListener('submit', (e) => {
       deleteBookForm.reset()
     })
 })
+
+// fetching a single document (& realtime)
+const docRef = doc(db, 'books', '32K9vFrxkRVS6TTCPCGa');
+
+/*
+getDoc(docRef)
+  .then(doc => {
+    console.log(doc.data(), doc.id)
+});
+*/
+
+onSnapshot(docRef, (doc) => {
+  console.log(doc.data(), doc.id)
+});
