@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDoc, onSnapshot,
+import { getFirestore, collection, getDocs, onSnapshot,
     addDoc, deleteDoc, doc,
     query, where,
     orderBy, serverTimestamp,
@@ -30,10 +30,9 @@ const auth = getAuth();
 const colRef = collection(db, 'books');
 
 //get collection data
-
-getDoc(colRef).then(snapshot=>{
-    console.log(snapshot.data);
-    console.log(snapshot.docs);
+getDocs(colRef).then(snapshot=>{
+    //console.log(snapshot.data); returns undefined(not a real function)
+    //console.log(snapshot.docs); returns whole query
     let books = [];
     snapshot.docs.forEach(doc => {
         books.push({...doc.data(), id: doc.id})
