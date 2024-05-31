@@ -29,6 +29,8 @@ const auth = getAuth();
 //collection Ref
 const colRef = collection(db, 'books');
 
+/* NORMAL COLLECTION DATA
+
 //get collection data
 getDocs(colRef).then(snapshot=>{
     //console.log(snapshot.data); returns undefined(not a real function)
@@ -41,6 +43,18 @@ getDocs(colRef).then(snapshot=>{
 }).catch(err=>{
     console.log(err.message);
 });
+
+*/
+
+//real time collection data
+onSnapshot(colRef, (snapshot) => {
+  let books = []
+  snapshot.docs.forEach(doc => {
+    books.push({ ...doc.data(), id: doc.id })
+  })
+  console.log(books)
+});
+
 
 //addding docs
 const addBookForm = document.querySelector('.add')
