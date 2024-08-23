@@ -1,0 +1,2 @@
+Data read from input.txt: This is a Simple Text File we will read using NodeJS and it's name is Simple Text File. STF for short or if ur cool. 
+Date created: Fri Aug 23 2024 05:41:58 GMT-0500 (Central Daylight Time)
