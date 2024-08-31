@@ -1,0 +1,14 @@
+{
+    "id": 12345,
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "address": {
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "zip": "12345"
+    },
+    "phone": "555-555-5555",
+    "interests": ["coding", "gaming", "reading"],
+    "is_active": true
+  }
