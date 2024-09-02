@@ -145,7 +145,7 @@ window.addEventListener('load', ()=>{
                 }
             });
             this.particles = [];
-            this.gap = 3;
+            this.gap = 1;
             this.mouse = {
                 radius: 20000,
                 x: 0,

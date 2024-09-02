@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprite Animation</title>
+    <link rel="stylesheet" href="./src/styles/global.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        #canvas1 {
+            border: 5px solid lightgreen;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background-color: white;
+        }
+        .controls {
+            position: absolute;
+            z-index: 10;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .controls, select, option {
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <label for="animations">Choose Animation:</label>
+        <select name="animations" id="animations">
+            <option value="idle">Idle</option>
+            <option value="jump">Jump</option>
+            <option value="fall">Fall</option>
+            <option value="run">Run</option>
+            <option value="dizzy">Dizzy</option>
+            <option value="sit">Sit</option>
+            <option value="roll">Roll</option>
+            <option value="bite">Bite</option>
+            <option value="ko">Ko</option>
+            <option value="getHit">Get Hit</option>
+        </select>
+    </div>
+    <canvas id="canvas1"></canvas>
+</body>
+<script src="./src/scripts/spriteAnimation/script.js" type="module"></script>
+</html>
