@@ -4,16 +4,28 @@ let app = express();
 const port = 3000;
 
 let movies = JSON.parse(fs.readFileSync('./data/movies.json'));
+
+const logger = function (res, req, next) {
+    console.log('Custom middleware called.');
+}
+
 app.use(express.json());
+app.use(logger);
+app.use((req,res,next)=>{
+    req.requestedAt = new Date().toISOString();
+    next();
+});
+
 //GET api/v1/movies
 app.get('./api/v1/movies', (req, res)=>{
     res.status(200).json({
         status: "success",
         count: movies.length,
+        requestedAt: req.requestedAt,
         data: {
             movies: movies
         }
-    })
+    });
 });
 
 //POST api/v1/movies
