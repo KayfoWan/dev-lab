@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 const fs = require('fs');
 let app = express();
 const port = 3000;
@@ -10,6 +11,7 @@ const logger = function (res, req, next) {
 }
 
 app.use(express.json());
+app.use(morgan());
 app.use(logger);
 app.use((req,res,next)=>{
     req.requestedAt = new Date().toISOString();
