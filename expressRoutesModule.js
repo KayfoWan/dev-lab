@@ -19,7 +19,7 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use('/api/v1/movies', moviesRouter)
+app.use('/api/v1/movies', moviesRouter);
 
 app.listen(port, ()=>{
     console.log('server is singing...');

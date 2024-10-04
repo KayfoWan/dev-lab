@@ -1,7 +1,23 @@
+
 const fs = require('fs');
 let movies = JSON.parse(fs.readFileSync('./data/movies.json'));
 
-exports.getAllMovies(req, res) {
+exports.checkId = (req, res, next, value) => {
+    console.log('Movie ID is ' + value);
+
+    //FIND MOVIE BASED ON ID PARAMETER
+    let movie = movies.find(el => el.id === value * 1);
+    if(!movie) {
+        return res.status(404).json({
+            status: 'fail',
+            message: 'Movie with ID ' +value+ ' is not found',
+        })
+    }
+    
+    next();
+}
+
+exports.getAllMovies = (req, res) => {
     res.status(200).json({
         status: "success",
         count: movies.length,
@@ -12,7 +28,7 @@ exports.getAllMovies(req, res) {
     });
 }
 
-exports.createMovie(req, res) {
+exports.createMovie = (req, res) => {
     const newId = movies[movies.length - 1].id + 1;
 
     const newMovie = Object.assign({id: newId}, req.body);
@@ -30,15 +46,17 @@ exports.createMovie(req, res) {
     });
 }
 
-exports.updateMovie(req, res) {
+exports.updateMovie = (req, res) => {
     let id = req.params.id * 1;
     let movieToUpdate = movies.find(el=>el.id===id);
+    /*
     if (!movieToUpdate) {
         return res.status(404).json({
             status: 'fail',
             message: 'No movie object with ID ' +id+ ' is found.',
         });
     }
+    */
     let index = movies.indexOf(movieToUpdate);
     Object.assign(movieToUpdate, req.body);
     movies[index] = movieToUpdate;
@@ -51,15 +69,17 @@ exports.updateMovie(req, res) {
     }));
 }
 
-exports.deleteMovie(req, res) {
+exports.deleteMovie = (req, res) => {
     const id = req.params.id * 1;
     const movieToDelete = movies.find(el=>el.id===id);
+    /*
     if(!movieToDelete) {
         return res.status(404).json({
             status: "fail",
             message: "No movie object with ID " +id+ " is found to delete.",
         });
     };
+    */
     const index = movies.indexOf(movieToDelete);
     movies.splice(index, 1);
 
@@ -73,18 +93,20 @@ exports.deleteMovie(req, res) {
     });
 }
 
-exports.getMovie(req, res) {
+exports.getMovie = (req, res) => {
     console.log(req.params);
     const id = req.params.id * 1;
 
     let movie = movies.find((el)=>el.id === id);
 
+    /*
     if (!movie) {
         return res.status(404).json({
             status: "fail",
             message: "Movie with ID " + id + " is not found",
         });
     };
+    */
 
     res.status(200).json({
         status: "success",
