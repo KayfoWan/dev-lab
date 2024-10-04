@@ -1,0 +1,8 @@
+h2 {
+    font-size: 4rem;
+    background-color: orange;
+    color: lightblue;
+    text-align: center;
+    padding: 5rem;
+    text-wrap: wrap;
+}
