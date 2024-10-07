@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "vite": "vite",
-    "build vite": "vite build"
+    "build": "vite build"
   },
   "author": "",
   "license": "ISC",
