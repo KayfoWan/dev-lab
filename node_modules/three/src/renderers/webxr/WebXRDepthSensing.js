@@ -52,7 +52,7 @@ class WebXRDepthSensing {
 			const texProps = renderer.properties.get( texture );
 			texProps.__webglTexture = depthData.texture;
 
-			if ( ( depthData.depthNear != renderState.depthNear ) || ( depthData.depthFar != renderState.depthFar ) ) {
+			if ( ( depthData.depthNear !== renderState.depthNear ) || ( depthData.depthFar !== renderState.depthFar ) ) {
 
 				this.depthNear = depthData.depthNear;
 				this.depthFar = depthData.depthFar;
@@ -65,7 +65,7 @@ class WebXRDepthSensing {
 
 	}
 
-	render( renderer, cameraXR ) {
+	getMesh( cameraXR ) {
 
 		if ( this.texture !== null ) {
 
@@ -86,9 +86,9 @@ class WebXRDepthSensing {
 
 			}
 
-			renderer.render( this.mesh, cameraXR );
-
 		}
+
+		return this.mesh;
 
 	}
 
@@ -96,6 +96,12 @@ class WebXRDepthSensing {
 
 		this.texture = null;
 		this.mesh = null;
+
+	}
+
+	getDepthTexture() {
+
+		return this.texture;
 
 	}
 

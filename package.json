@@ -1,21 +1,25 @@
 {
-  "name": "threejs",
+  "name": "3d-practice",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "vite": "vite",
-    "build": "vite build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k4199/ThreeJS-Practice.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "three": "^0.164.1",
-    "vite": "^5.2.10"
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/k4199/ThreeJS-Practice/issues"
   },
-  "devDependencies": {
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+  "homepage": "https://github.com/k4199/ThreeJS-Practice#readme",
+  "description": "",
+  "dependencies": {
+    "three": "^0.174.0",
+    "vite": "^6.2.2"
   }
 }
