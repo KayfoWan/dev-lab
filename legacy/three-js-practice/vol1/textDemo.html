@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THREEJS TEXT DEMO</title>
+    <link rel="stylesheet" href="/style.css">
+    <script defer type="module" src="/text.js"></script>
+    <style>
+        div#overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 95vh;
+            color: lime;
+        }
+        div > * {
+            margin: 1rem;
+        }
+        div:nth-child(1) {
+            /*color: aqua;*/
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        div:nth-child(2) {
+            /*color: yellow;*/
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        div:nth-child(3) {
+            /*color: orange;*/
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        div:nth-child(4) {
+            /*color: blue;*/
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay">
+        <div>
+            <p>Left Left</p>
+            <p>Left Left</p>
+        </div>
+        <div>
+            <p>Right</p>
+            <p>Right</p>
+        </div>
+        <div>
+            <p>Left</p>
+            <p>Left</p>
+        </div>
+        <div>
+            <p>Right</p>
+            <p>Right</p>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <nav>
+        <a href="/">Cube Demo</a>
+        <a href="/lineDemo">Line Demo</a>
+        <a href="/textDemo">Text Demo</a>
+        <a href="/modelDemo">Model Demo</a>
+    </nav>
+    <div id="errorContainer"></div>
+</body>
+</html>

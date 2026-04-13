@@ -1,0 +1,5 @@
+.DS_Store
+node_modules
+./shaders/node_modules
+./vol1/node_modules
+./vo2/node_modules
