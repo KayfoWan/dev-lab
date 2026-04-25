@@ -1,0 +1,11 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
+
+window {
+  background: yellow;
+  color: red;
+  font-weight: bold;
+  padding: 5px;
+  font-family: "Rubik", "Noot Sans CJK JP", "Noto Sans CJK KR", "JetBrainsMono Nerd Font Propo";
+}
