@@ -1,0 +1,18 @@
+@charset "utf-8";
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+}
+
+#canvas {
+    background-color: darkslategray;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    image-rendering: crisp-edges;
+}
