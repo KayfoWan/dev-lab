@@ -1,0 +1,27 @@
+Bash Notes
+Man Pages
+-------------
+
+man = manual
+
+man pages open in less
+
+man pages typically have sections
+ - man 1 cp
+ - (Section 1 of copy command)
+
+help is the man equivalent built into Bash
+
+ZSH does not have help built in
+ZSH has run-help built in
+
+When finding files, which / where / type -a, can be useful
+
+which command only finds external while type -a will find everything about it
+
+type command tells you what the command is
+type -a will tell you every type from top to bottom
+
+Some commands have more options in the built in version rather than the one on your system.
+That's when you would need to use help rather than man to view the built in manual.
+
