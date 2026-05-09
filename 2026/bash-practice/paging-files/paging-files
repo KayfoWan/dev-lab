@@ -1,0 +1,16 @@
+Bash Notes
+Paging Files
+---------------
+
+less is a pager
+more is a pager
+(less is more)
+
+hitting "/" lets you search
+"n" to go through results
+"Shift+n" to go back through results
+
+You can pipe into less and more
+example: cat bigFile.txt | grep kai | grep ai | less
+
+
