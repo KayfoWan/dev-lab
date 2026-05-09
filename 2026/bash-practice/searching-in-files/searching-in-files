@@ -1,0 +1,35 @@
+Bash Notes
+Searching in Files
+----------------------
+
+grep '^kai' file.txt
+ - Matches beginning
+
+grep 'kai$' file.txt
+ - Matches end
+
+grep -A1 kai file.txt
+ - Find line and print one line after
+ - (After. 1 line after)
+
+grep -B1 kai file.txt
+ - Find line and print one line before
+ - (Before. 1 line before)
+
+grep -C1 kai file.txt
+ - Find line and print one line before and one line after
+ - (Context. 1 line before and after of context)
+
+grep -i kai file.txt
+ - Case insensitive
+
+grep -o '^k.' file.txt
+ - Only print the part that matches
+ - (Finds what starts with k and ONLY prints k and what comes next(The "." specifies this))
+
+grep -oi '^k.' file.txt
+ - Flags can be put together
+
+cat file.txt | grep -i kai | grep ai | grep i
+ - Pipes (Pipelines) can be used to grep multiple times
+
