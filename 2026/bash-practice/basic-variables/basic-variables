@@ -1,0 +1,33 @@
+Bash Notes
+Basic Variables
+-----------------
+
+$PATH
+
+pwd
+$PWD
+
+whoami
+$USER
+
+$SHELL
+
+$HOSTNAME
+
+$MACHTYPE
+
+Making a variable: name=kai
+
+Unsetting a variable:
+ - name=
+ - unset name
+
+uname command shows system name
+uname -a shows more system info (everything in uname)
+
+Use backticks to store the output of a command in a variable
+ - myMachine=`uname -a`
+
+Backticks work but are old syntax. New syntax is to use $()
+ - myMachine=$(uname -a)
+
