@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+first_array=(foo bar baz)
+second_array=( "${first_array[@]}" buddy guy )
+second_array+=(joe)
+
+for item in "${second_array[@]}"; do
+	echo "item is: $item"
+done

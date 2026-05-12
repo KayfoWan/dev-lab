@@ -1,0 +1,39 @@
+Bash Notes
+Indexed Arrays
+------------------
+
+
+when accessing an array:
+* stringifies
+@ iterates
+
+Double "" quotes and @ sign is how to properly loop over an array in Bash.
+
+"${#array[@]}" to get the length of an array
+
+Example:
+
+array=(foo bar baz)
+declare -p array
+- delcare -a array=([0]="foo" [1]="bar" [2]="baz")
+array=([0]="foo" [1]="bar" [2]="baz" [45]="buddy")
+declare -p array
+- declare -a array([0]="foo" [1]="bar" [2]="baz" [45]="buddy")
+echo "${array[45]}"
+- buddy
+echo "${#array[@]}"
+- 4
+
+
+To get the length of the string in an array it would be:
+"${#array[45]}"
+In this case "buddy" is at index 45 and would return 5
+
+You can also do this for normal variables to get the length of a string:
+var="hello world"
+echo ${#var}
+and the result would be 11
+
+
+
+
