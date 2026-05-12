@@ -1,0 +1,22 @@
+Bash Notes
+Finally Scripting
+--------------------
+
+for loop:
+for thing in item1 item2 item3; do
+	echo "The item is currently $thing"
+done
+
+
+Syntax check a file without executing it:
+
+bash -n script
+
+no error messages printed to the screen is good
+
+Checking exit code for syntax errors:
+
+ehco $?
+
+if it returns 0 it is a success.
+If it returns non-0 there is a syntax error.
