@@ -1,0 +1,27 @@
+Bash Notes
+Vim Crash Course
+-------------------
+
+move - hjkl
+
+insert - i
+insert after - a
+insert above - O
+insert below - o
+
+replay last command - .
+delete line - dd
+
+copy - y
+paste - p
+
+move to start - 0
+move to end - $
+
+undo - u
+redo - ^r
+
+quit - :q
+write - :w
+write & quit - :wq
+
