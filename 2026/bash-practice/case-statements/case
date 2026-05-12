@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+s=$1
+case "$s" in
+	dave)
+		echo hi dave
+		;;
+	buddy)
+		echo oohhhhh nooo
+		;;
+	guy)
+		echo uh oh here comes trouble..
+		;;
+	*)
+		echo "I don't know who you are"
+esac
