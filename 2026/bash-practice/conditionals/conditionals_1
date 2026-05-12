@@ -1,0 +1,16 @@
+Bash Notes
+Conditionals
+---------------
+
+In an if statement you can echo with either double quotes (""), single quotes (''), or no quotes at all.
+Double quotes will allow for variable expansion.
+Signle quotes will not allow varibale expansion.
+
+Use 'help test' to figure out what bash can test for.
+Use 'run-help' in place of 'help' for ZSH.
+
+"true" and "false" are commands.
+
+You can use conditionals as normal commands and even chain them:
+[[ -f file.txt ]] && echo it exists!
+

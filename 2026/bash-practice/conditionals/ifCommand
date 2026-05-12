@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if echo hi; then
+	echo "true"
+else
+	echo "false"
+fi
+
