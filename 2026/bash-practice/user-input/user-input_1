@@ -1,0 +1,21 @@
+Bash Notes
+User Input
+-----------------
+
+How to read from a prompt and display it:
+
+read -p "Enter your prompt: " prompt
+echo "$prompt"
+
+
+If Statement:
+
+if [[ statement ]]; then
+	echo "yes"
+else
+	echo "no"
+fi
+
+
+Select first and second argument: $1 $2
+Select all available arguments: $@
