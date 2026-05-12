@@ -1,0 +1,12 @@
+Bash Notes
+File Permissions
+--------------------
+
+Giving execute permissions:
+chmod +x file.txt
+
+shebang for bash:
+#!/usr/bin/env bash
+
+You shouldn't need a file extension if you have the shebang defined.
+
