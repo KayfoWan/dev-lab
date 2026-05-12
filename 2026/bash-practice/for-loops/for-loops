@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+for thing in {a..f}; do
+	echo "name is $thing"
+done
+
+for thing in {1..5}; do
+	echo "number is $thing"
+done
+
+max=5
+for thing in {1..$max}; do
+	echo "number is $thing"
+done
+
+for ((i = 0; i < max; i++)); do
+	echo "thing is $i"
+done
