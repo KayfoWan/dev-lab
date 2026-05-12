@@ -1,0 +1,20 @@
+Bash Notes
+Input / Output
+-----------------
+
+read -r basically mean raw input. It does not try to interpret things.
+
+read by default reads only the first line.
+
+":" = "true"
+
+Can do ./whileReadInput < file.txt
+This eliminates the use of using cat unneedingly.
+
+These are also both valid:
+<file.txt ./whileReadInput
+< file.txt ./whileReadInput
+
+$# is the amount of arguments given
+
+exit breaks out of a script
