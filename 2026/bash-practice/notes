@@ -13,3 +13,8 @@ Running /bin/ls as a command works as if using ls
 compgen -b shows all commands built into bash
 
 Be mindful that commands in bash might work different than the same commands built onto your system
+
+To run a script without permissions you can do bash ./script.sh
+
+yes command exists and just spams 'y'
+
