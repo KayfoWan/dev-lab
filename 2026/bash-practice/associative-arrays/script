@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+declare -A arr
+
+arr[foo]=1
+arr[bar]=2
+arr[baz]=3
+
+echo "${arr[foo]}"
+echo "${arr[bar]}"
+echo "${arr[baz]}"
+
+echo "${arr[fake]}"
+
+#echo "${arr[@]}"
+
+#To loop of the keys
+#* is stringified
+echo "${!arr[*]}"
+
+for key in "${!arr[@]}"; do
+	value=${arr[$key]}
+	echo "got $key"
+	echo "value is $value"
+done

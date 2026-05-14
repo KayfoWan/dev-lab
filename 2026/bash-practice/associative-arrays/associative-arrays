@@ -1,0 +1,13 @@
+Bash Notes
+Associative Arrays
+---------------------
+
+Are like javascript objects.
+key:value
+
+Only in Bash 4.0+
+
+To make an associative array:
+declare -A arr
+
+

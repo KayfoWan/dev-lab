@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if ! declare -A arr; then
+	echo "uh oh, i couldn't make an associative array" >&2
+	exit 1
+fi
+
+
