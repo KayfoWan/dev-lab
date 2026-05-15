@@ -1,0 +1,75 @@
+Bash Notes
+Arithmetic Expresssions
+-------------------------
+
+Arithmetic expressions: $(( ))
+
+You don't need $ preceding variables.
+
+When a value can't be parsed as a number (i.e. a string) then it will be treated as a 0.
+
+The "$" when defining an arithmetic expression is optional but required on echo. (())
+
+You can increment with ++.
+Example:
+
+i=0 
+((i++))
+echo "i = $i"
+
+Output: i = 1 
+
+More operators:
+(( i++ ))
+(( i-- ))
+(( i *= 5 ))
+(( i ** 2 ))
+(( i /= 2 ))
+(( i %= 2 ))
+(( i -= 2 ))
+(( i += 2 ))
+(( i >>= 5 )) -shift operator (shifts the binary of 2 (00000010) 5 places to the right)
+(( i <<= 5 )) -shift operator (shifts the binary of 2 (00000010) 5 places to the left)
+(( i &= 2 ))
+(( i ^= 2 ))
+(( i |= 2 ))
+
+
+Shift operations are called bitwise shifts.
+Can do logical operators.
+
+In this syntax you can do ternaries ( b ? a : b )
+
+Arithmetic expressions return error codes.
+Examples:
+
+(( 2 + 2 ))
+ehco $?
+0
+
+(( 2 - 2 ))
+echo $?
+1
+
+Zeros come out as a failure.
+Zero as in the answer of the math expression. Not the error code which when 0 means it was a success.
+
+set -e makes bash exit when encountering an error.
+
+Broken Example:
+
+set -e
+i=0
+while ((i < 10)); do
+	echo "i is $i"
+	((i++))
+done
+
+Why this is broken: The return code of ((i++)) is a failure because the first time it runs the answer is 0 when it's 0++. Although it resolves to 1, 0++ is a post increment so the increment takes place after the fact.
+
+Leading zeros can cause problems in arithmetic expressions because it is viewed as octals.
+That means numbers cannot be above 8. so a=07 echo $((a)) results in 7, a=08 echo $((a)) results in an error, a=010 echo $((a)) results in 8.
+
+We can define a base in instances like this to strip the leading zeros off. a=010 echo $((10#$a)) results in 10. The 10# defines that it is in a base of 10.
+
+

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+#thing=$(( 2 + 2 ))
+#echo "thing is $thing"
+
+#a=2
+#b=3
+#(( c = a + b ))
+#echo "c = $c"
+
+#i=0
+#((i++))
+#echo "i = $i"
+
+#a=2
+#b=3
+#((max = a > b ? a : b))
+#echo "max = $max"
+
+a=08
+echo "$a"
+echo $(( 10#$a ))
