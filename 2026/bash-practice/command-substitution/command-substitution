@@ -1,0 +1,12 @@
+Bash Notes
+Command Substitution
+-----------------------
+
+Functions can modify the global scope.
+If you use command substitution (var=$(func)) then it cannot modify that global scope.
+Use "local" keyword in functions to avoid global scope changes.
+
+New syntax (Bash 5.3+) allows for us to run the function outside of its own sub-shell but still capture the output.
+Example: var=${ func; }
+The space after the opening curly brace and the semicolon are required.
+Slightly faster than using parenthesis because you have to create the sub-shell.

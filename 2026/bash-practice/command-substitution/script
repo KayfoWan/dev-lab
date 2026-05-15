@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+#thing=`whoami`
+#echo "thing is $thing"
+
+#whoami
+#echo `whoami`
+
+#echo "Hello `whoami`"
+
+echo backticks
+whoami
+echo `whoami`
+echo `echo \`whoami\``
+echo `echo \`echo \\\`whoami\\\`\``
+
+echo dollar-parens notation
+whoami
+echo $(whoami)
+echo $(echo $(whoami))
+echo $(echo $(echo $(whoami)))
