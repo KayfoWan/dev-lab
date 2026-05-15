@@ -1,0 +1,20 @@
+Bash Notes
+IFS Variables
+----------------
+
+IFS is a special variable built into bash that bash uses to determine how to break up arguments, split words, and do all sorts of stuff.
+
+If you mess with IFS it can cause issues.
+
+It is still useful to be aware of.
+
+If the IFS is unset, it defaults to acting like normal default IFS.
+
+IFS stands for Internal Field Separator.
+
+The first char of the IFS is what then becomes the separator of a stringified, quoted array.
+(And in other instances too)
+
+Use parenthesis () to create a sub-shell or local scope variables within the parenthesis.
+
+You can use "${!array[*]}" to get the keys (indices) even in indexed arrays.
