@@ -1,0 +1,8 @@
+Bash Notes
+Process Substitution
+-----------------------
+
+Syntax is <(...)
+>(...) works but reverses it
+
+
