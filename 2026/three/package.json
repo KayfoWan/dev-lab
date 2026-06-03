@@ -2,16 +2,20 @@
   "name": "three",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "particles/vortex/script.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite particles/vortex",
+    "build": "tsc && vite build particles/vortex"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "three": "^0.184.0",
     "vite": "^8.0.13"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.1"
   }
 }
