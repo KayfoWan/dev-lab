@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Practice</title>
+    <script defer src="./script.ts" type="module"></script>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        button {
+            position: absolute;
+            z-index: 10;
+            padding: 10px 20px;
+            color: blue;
+            border: 2px solid blue;
+            background: transparent;
+            cursor: pointer;
+            transition: ease-in-out 0.2s;
+
+            &:hover, &:focus {
+                background-color: slateblue;
+                color: black;
+            }
+        }
+
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <button id="start-btn" type="button">BOOT UP SIMULATION</button>
+    <canvas id="canvas"></canvas>
+</body>
+</html>
