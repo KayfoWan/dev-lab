@@ -2,10 +2,10 @@
   "name": "three",
   "version": "1.0.0",
   "description": "",
-  "main": "particles/vortex/script.ts",
+  "main": "particles/shapeMatrix/script.ts",
   "scripts": {
-    "dev": "vite particles/vortex",
-    "build": "tsc && vite build particles/vortex"
+    "dev": "vite particles/shapeMatrix",
+    "build": "tsc && vite build particles/shapeMatrix"
   },
   "keywords": [],
   "author": "",
