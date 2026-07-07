@@ -1,0 +1,76 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$sys-fg-color: #{"@theme_fg_color"};
+$sys-bg-color: #{"@theme_bg_color"};
+
+window {
+  font-size: 14px;
+}
+
+window.DesktopWidgets {
+  // background-color: rebeccapurple;
+  padding-top: 25px;
+  padding-right: 25px;
+  font-family: "ProggyClean Nerd Font Mono", monospace;
+  color: black;
+}
+
+window.Bar {
+  background: transparent;
+  color: black;
+  font-family: "ProggyClean Nerd Font Mono", monospace;
+  font-weight: bold;
+
+  > centerbox {
+    background: transparent;
+
+    .leftBox > * {
+      margin-left: 1rem;
+    }
+
+    .rightBox > * {
+      margin-right: 1rem;
+    }
+  }
+
+  button {
+    border-radius: 0;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: linear 0.2s;
+
+    &:hover {
+      color: rgb(16, 176, 176);
+    }
+  }
+}
+
+.github-panel {
+  // background-color: rgba(20, 20, 24, 0.6);
+  // border-radius: 12px;
+  // padding: 14px;
+  color: black;
+}
+
+.github-title {
+  font-weight: bold;
+}
+
+.github-count {
+  // color: #a0aec0;
+  font-size: 0.85rem;
+}
+
+.github-sq { 
+  min-width: 14px;
+  min-height: 14px;
+  border-radius: 3px;
+}
+
+.github-empty { background-color: #21262d;}
+
+.git-0 { background-color: #21262d;}
+.git-1 { background-color: #0e4429;}
+.git-2 { background-color: #006d32;}
+.git-3 { background-color: #26a641;}
+.git-4 { background-color: #39d353;}
