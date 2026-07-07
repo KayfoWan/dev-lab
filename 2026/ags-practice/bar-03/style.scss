@@ -11,10 +11,20 @@ window.Bar {
     background: $bg-color;
     border-radius: 10px;
     margin: 8px;
+    min-height: 48px;  // 🚨 CRITICAL: Forces a height so it doesn't collapse to 0px!
+    min-width: 500px;  // Forces it to have some horizontal presence
+    padding: 0 16px;
   }
 
   button {
     border-radius: 8px;
     margin: 2px;
+    padding: 4px 8px;  // Gives text inside the button padding
   }
+}
+
+// Add padding and size context to your wifi container
+.wifi-module {
+  min-height: 32px;
+  min-width: 60px;
 }
