@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lola bunny
+* source:	https://sketchfab.com/3d-models/lola-bunny-f44b0e9aff3c4523a978c906828f2a4f
+* author:	zgreenwood (https://sketchfab.com/zgreenwood)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lola bunny" (https://sketchfab.com/3d-models/lola-bunny-f44b0e9aff3c4523a978c906828f2a4f) by zgreenwood (https://sketchfab.com/zgreenwood) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

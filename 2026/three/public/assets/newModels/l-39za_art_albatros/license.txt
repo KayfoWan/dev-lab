@@ -1,0 +1,11 @@
+Model Information:
+* title:	L-39ZA ART Albatros
+* source:	https://sketchfab.com/3d-models/l-39za-art-albatros-4f694d2badee4852b917b25e567857d8
+* author:	Jeyhun1985 (https://sketchfab.com/Jeyhun1985)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "L-39ZA ART Albatros" (https://sketchfab.com/3d-models/l-39za-art-albatros-4f694d2badee4852b917b25e567857d8) by Jeyhun1985 (https://sketchfab.com/Jeyhun1985) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

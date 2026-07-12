@@ -2,10 +2,10 @@
   "name": "three",
   "version": "1.0.0",
   "description": "",
-  "main": "particles/shapeMatrix/script.ts",
+  "main": "particles/model/script.ts",
   "scripts": {
-    "dev": "vite particles/shapeMatrix",
-    "build": "tsc && vite build particles/shapeMatrix"
+    "dev": "vite particles/model",
+    "build": "tsc && vite build particles/model"
   },
   "keywords": [],
   "author": "",
