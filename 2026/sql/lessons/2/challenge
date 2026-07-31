@@ -1,0 +1,12 @@
+SQL
+Lesson 2
+Challenge
+-----------
+
+SELECT
+  games.title as title,
+  categories.name as category
+FROM game_categories
+INNER JOIN games ON games.id = game_categories.game_id
+INNER JOIN categories ON categories.id = game_categories.category_id
+WHERE categories.slug = 'arcade';

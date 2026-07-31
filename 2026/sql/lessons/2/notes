@@ -1,0 +1,34 @@
+SQL
+Lesson 2
+Notes
+-----------
+
+What is a JOIN?
+A JOIN clause combines rows from two or more tables based on a related column - usually a Primary Key = Foreign Key match.
+
+SELECT columns
+FROM table_a
+JOIN table_b ON table_a.id = table_b.id;
+
+The 4 main types of JOINs:
+
+Think of tables as overlapping Venn diagrams.
+- INNER JOIN (default)
+  - Returns: Only rows that have matching records in both tables.
+  - Ex: Get games that actually have reviews written for them.
+- LEFT JOIN:
+  - Returns: ALL rows from the left table, plus matching rows from the right (or NULL if no match).
+  - Ex: Get ALL games, even if a game has zero reviews yet.
+- RIGHT JOIN:
+  - Returns: All rows from the right table, plus matching rows from the left (or NULL if no match).
+  - Rarely used in practice. You can achieve the same result by swapping table order in a LEFT JOIN.
+- FULL OUTER JOIN
+  - Returns: All rows from both tables, matched where possible, NULL everywhere else.
+  - Ex: Used for system audits or reporting edge cases.
+
+Rule of thumb for web apps:
+90% of the time in full-stack web dev, you will use INNER JOIN or LEFT JOIN.
+
+What is COALESCE()? COALESCE(value, 0.0) tells SQL to fallback to 0.0 if result returns NULL.
+
+
