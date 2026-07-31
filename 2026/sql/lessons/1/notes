@@ -1,0 +1,89 @@
+SQL
+Lesson 1
+Notes
+--------------
+
+NoSQL / JSON Document Stores:
+Firebase Firestore
+MongoDB
+
+SQL Databases:
+PostgreSQL
+MySQL
+SQLite
+
+SQL Databases store data in strictly typed tables with rows & columns.
+
+Relationships are formed by linking rows across tables using Keys.
+
+Primary Key (PK): A unique identifier for a specific row in a table (usually an ID, auto-incrementing integer, or UUID).
+
+Foreign Key (FK): A column in Table B that references the Primary Key of Table A. This creates the link between data.
+
+There are 3 ways tables talk to each other:
+- One-to-many(1:N)
+  - Ex: One user has many chat messages
+  - Implementation: messages table has a user_id foreign key.
+- Many-to-Many(N:M)
+  - Ex: One Game has many Tags, and one Tag belongs to many Games
+  -Implementation: Created using a third "Junction Table" (e.g. game_tags with game_id & tag.id).
+- One-to-One(1:1)
+  - Ex: One User has one Game Developer Profile
+  - Implementation: developer_profiles table has a user_id foreign key marked as UNIQUE.
+
+Basic SQL Schema Syntax:
+
+// Create Users Table
+CREATE TABLE users (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  username VARCHAR(50) NOT NULL UNIQUE,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+// Create the Chat Messages Table with a Foreign Key link
+CREATE TABLE chat_messages (
+  id SERIAL PRIMARY KEY,
+  user_id UUID NOT NULL,
+  room_name VARCHAR(50) NOT NULL DEFAULT 'general',
+  message_text TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_user
+    FOREIGN KEY(user_id)
+    REFERENCES users(id)
+    ON DELETE CASCADE
+);
+
+
+What does "ON DELETE CASCADE" do?
+If a user deletes their account from the users table, SQL will automatically clean up and delete all of their messages in chat_messages so you don't end up with orphaned data.
+
+Fundamental SQL Queries(CRUD)
+
+Create:
+
+INSERT INTO users (username, email)
+VALUES ('kayfowan', 'kai@example.com');
+
+READ:
+
+SELECT id, username FROM users WHERE username = 'kayfowan';
+
+UPDATE:
+
+UPDATE users
+SET username = 'kayfowan_dev'
+WHERE email = 'kai@example.com';
+
+DELETE:
+
+DELETE FROM users WHERE id = 'some-uuid-here';
+
+
+
+
+
+
+
+

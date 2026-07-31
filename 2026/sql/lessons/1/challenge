@@ -1,0 +1,32 @@
+SQL
+Lesson 1
+Challenge
+-----------
+
+CREATE TABLE games(
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  slug VARCHAR(100) UNIQUE NOT NULL
+);
+
+Goal: Allow users to leave Reviews / Ratings on games.
+
+
+CREATE TABLE reviews(
+  id SERIAL PRIMARY KEY,
+  game_id INT NOT NULL,
+  user_id UUID NOT NULL,
+  review_text TEXT NOT NULL,
+  rating INT NOT NULL CHECK(rating >= 1 AND rating <= 5),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+
+  CONSTRAINT fk_game
+    FOREIGN KEY(game_id)
+    REFERENCES games(id)
+    ON DELETE CASCADE
+
+  CONSTRAINT fk_user
+    FOREIGN KEY(user_id)
+    REFERENCES users(id)
+    ON DELETE CASCADE
+);
