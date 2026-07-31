@@ -1,0 +1,64 @@
+SQL
+Lesson 4
+Notes
+----------
+
+A Database Index is a seperate, specialized data structure (usually a B-Tree/Balanced Tree) that keeps a sorted pointer map to your rows.
+
+Instead of doing a Full Table Scan (Sequential Scan)(O(N) time complexity) which is computationally expensive, an indexed lookup takes a few quick operations to jump straight to the exact row on disk.
+
+Syntax:
+
+CREATE INDEX idx_users_username ON users (username);
+
+Whenever you define a column as a PRIMARY KEY or UNIQUE, the database engine automatically creates an index for that column under the hood.
+
+CREATE TABLE users (
+  id UUID PRIMARY KEY,        --Auto-Indexed
+  email VARCHAR(255) UNIQUE   --Auto-Indexed
+);
+
+Composition Indexes (Multi-Column): Indexes multiple columns in a specific order.
+
+SELECT * FROM reviews
+WHERE game_id = 42 AND is_published = true;
+
+CREATE INDEX idx_reviews_game_published
+ON reviews (game_id, is_published);
+
+The Left-to-Right Rule: A composite index on (A, B) speeds up queries filtering on (A, B) or just (A), but it WILL NOT help queries that filter on just (B) alone.
+
+Use EXPLAIN ANALYZE to spot slow queries.
+PostgreSQL, MySQL, and SQLite provide a diagnostic tool called EXPLAIN (or EXPLAIN ANALYZE in Postgres) that reveals the exact execution plan the database engine uses under the hood.
+
+EXPLAIN ANALYZE
+SELECT * FROM game_downloads
+WHERE downloaded_at >= '2026-01-01';
+
+What to look for in the output:
+- Seq Scan
+  - The database scanned every row one by one. Bad for large tables.
+- Index Scan / Bitmap Index Scan
+  - The database used an index to jump straight to the matching rows. Excellent!
+- Execution Time: 450.23ms vs 0.12ms
+  - Adding the right index often turns a half-second query into a fraction of a millisecond.
+
+
+The Golden Trade-off: Don't Index Everything.
+If indexes make SELECT queries so fast, why not index every single column in every table?
+Because Indexes come at a cost:
+- Storage Overhead
+  - Every index is a seperate data structure saved to disk/RAM.
+- Slower INSERT, UPDATE, and DELETE: Every time you write new data, the database must write the row to the table AND rebuild/re-balance every index attached to the table.
+
+Basically:
+
+SELECT(Read) W/O Index = Slow
+SELECT(Read) W/ Index = Super Fast
+INSERT/UPDATE(Write) W/O Index = Fast
+INSERT/UPDATE(Write) W/ Index = Slower(Index rebuild overhead)
+
+Rule of Thumb: Index columns that appear frequently in WHERE, JOIN ... ON, ORDER BY, or GROUP BY clauses - especially on tables with high read volume compared to write volume.
+
+
+

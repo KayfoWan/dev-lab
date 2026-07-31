@@ -1,0 +1,24 @@
+SQL
+Lesson 4
+Challenge
+-----------
+
+// game_sessions table has 1,000,000 rows.
+
+CREATE TABLE game_sessions (
+  id SERIAL PRIMARY KEY,
+  game_id INT NOT NULL REFERENCES game(id),
+  user_id UUID NOT NULL REFERENCES users(id),
+  score INT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+// Api route runs this thousands of times a minute to determine All-Time High Score Leaderboard for a game.
+
+SELECT user_id, score
+FROM game_sessions
+WHERE game_id = 15
+ORDER BY score DESC
+LIMIT 10;
+
+CREATE INDEX idx_game_sessions_leaderboard ON game_sessions (game_id, score DESC) INCLUDE (user_id);
