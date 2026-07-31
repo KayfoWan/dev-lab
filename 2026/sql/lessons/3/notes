@@ -1,0 +1,72 @@
+SQL
+Lesson 3
+Notes
+------------
+
+Core Aggregate Functions:
+
+- COUNT()
+  - Counts the number of non-null rows.
+  - Ex: How many total reviews does a game have?
+- AVG()
+  - Calculates the numerical average.
+  - Ex: What is the game's overall rating score?
+- SUM()
+  - Adds all values in a column together.
+  - Ex: What is total developer revenue generated?
+- MIN() / MAX()
+  - Finds the lowest or highest value.
+  - Ex: What are the all-time high scores on a leaderboard?
+
+
+// Single aggregate across the whole table
+SELECT
+  COUNT(*) AS total_games,
+  AVG(price) AS average_game_price
+FROM games;
+
+When you use an aggregate function without GROUP BY, SQL collapses the entire table into a single row.
+
+GROUP BY tells SQL: "Bucket the rows based on shared values in a specific column, then run the aggregate function on EACH bucket individually."
+
+SELECT
+  categories.name AS category_name,
+  COUNT(game_categories.game_id) AS game_count
+FROM categories
+LEFT JOIN game_categories ON categories.id = game_categories.category_id
+GROUP BY categories.name;
+
+The Cardinal Rule of GROUP BY:
+If a column appears in your SELECT clause without an aggregate function wrapping it, it MUST be included in your GROUP BY clause.
+
+//ERROR:
+SELECT title, AVG(rating) FROM reviews;
+//Correct:
+SELECT title, AVG(rating) FROM reviews GROUP BY title;
+
+WHERE vs HAVING
+
+WHERE is Pre-Filter:
+Filters individual rows BEFORE they get grouped or calculated.
+HAVING is Post-Filter:
+Filters entire groups AFTER aggregates are calculated.
+
+Raw Table Rows -> WHERE -> GROUP BY -> Aggregate Calculations -> HAVING -> Final Result
+
+
+// Find categories with more than 5 games, but only the games published after 2025.
+
+SELECT
+  categories.name AS category_name,
+  COUNT(games.id) AS game_count
+FROM categories
+INNER JOIN game_categories ON categories.id = game_categories.category_id
+INNER JOIN games ON games.id = game_categories.game_id
+WHERE games.published_at >= '2025-01-01'
+GROUP BY categories.name
+HAVING COUNT(games.id) > 5;
+
+
+
+
+

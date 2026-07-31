@@ -1,0 +1,26 @@
+SQL
+Lesson 3
+Challenge
+------------
+
+CREATE TABLE game_downloads (
+  id SERIAL PRIMARY KEY,
+  game_id INT NOT NULL REFERENCES games(id),
+  user_id UUID NOT NULL,
+  downloaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+------------
+Goal: get game_id, total_downloads
+- Must group results by game_id
+- Only downloads after 2026
+- Only games that have at least 100 total downloads
+
+
+SELECT
+  game_id,
+  COUNT(id) AS total_downloads
+FROM game_downloads
+WHERE game_downloads.downloaded_at >= '2026-01-01'
+GROUP BY game_id
+HAVING total_downloads >= 100;
